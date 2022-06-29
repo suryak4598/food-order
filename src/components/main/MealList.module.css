@@ -1,0 +1,59 @@
+.meals {
+  max-width: 60rem;
+  width: 90%;
+  margin: 2rem auto;
+  animation: meals-appear 1s ease-out forwards;
+}
+
+.meal {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.meal h3 {
+  margin: 0 0 0.25rem 0;
+}
+
+.description {
+  font-style: italic;
+}
+
+.price {
+  margin-top: 0.25rem;
+  font-weight: bold;
+  color: #ad5502;
+  font-size: 1.25rem;
+}
+
+.side_menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.side_menu input {
+  width: 50px;
+  height: 30px;
+  padding: 5px;
+}
+
+.full_side_menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.full_side_menu button {
+  background-color: chocolate;
+  color: white;
+  border: none;
+  width: 80px;
+  height: 35px;
+  border-radius: 15px;
+  font: inherit;
+  font-weight: bold;
+}
