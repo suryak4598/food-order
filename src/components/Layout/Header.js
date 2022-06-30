@@ -8,7 +8,6 @@ const Header = () => {
     <React.Fragment>
       <header className={classes.header}>
         <h1>Order Your Food</h1>
-        {/* <h1>Your Food</h1> */}
         <HeaderCart />
       </header>
       <div className={classes["background"]}>

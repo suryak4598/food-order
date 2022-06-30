@@ -1,33 +1,3 @@
-/* .header__cart {
-  border-radius: 60px;
-  width: 210px;
-  display: flex;
-  justify-content: space-around;
-  height: 50px;
-  align-items: center;
-  background-color: darkred;
-  padding: 7px;
-}
-
-.total {
-  position: absolute;
-  padding: 1px;
-  top: 10px;
-  margin: 15px;
-}
-
-.inner__header__card {
-  background-color: chocolate;
-  width: 2.5rem;
-  height: 2rem;
-  border-radius: 10px;
-}
-
-@media screen and (max-width: 530px) {
-  div h3 {
-    font-size: 25px;
-  }
-} */
 
 .header__cart__button {
   cursor: pointer;

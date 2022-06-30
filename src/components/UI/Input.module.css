@@ -1,0 +1,11 @@
+
+
+.input_class{
+    border: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input_class:focus {
+    outline: none;
+}

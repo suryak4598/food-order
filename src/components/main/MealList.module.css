@@ -40,6 +40,7 @@
   padding: 5px;
 }
 
+
 .full_side_menu {
   display: flex;
   flex-direction: column;
@@ -56,4 +57,8 @@
   border-radius: 15px;
   font: inherit;
   font-weight: bold;
+}
+
+.full_side_menu button:hover{
+  background-color: darkred;
 }
