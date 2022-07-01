@@ -8,25 +8,25 @@ const mealList = [
     id: 1,
     title: "Chicken Gravy",
     incred: "Chicken and gravy",
-    amount: 200,
+    price: 200,
   },
   {
     id: 2,
     title: "Briyani",
     incred: "Chicken and Masala",
-    amount: 110,
+    price: 110,
   },
   {
     id: 3,
     title: "Burger",
     incred: "Bun and Vegetables",
-    amount: 180,
+    price: 180,
   },
   {
     id: 4,
     title: "Pizza",
     incred: "Chicken and toppins",
-    amount: 400,
+    price: 400,
   },
 ]
 

@@ -1,14 +1,22 @@
 import classes from "./HeaderCart.module.css"
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart"
+// import ShoppingCartIcon from "@material-ui/icons/ShoppingCart"
+import CartIcon from '../Cart/CartIcon';
+import CartContext from "../store/cart-context";
+import { useContext } from "react";
 
-const HeaderCart = () => {
+const HeaderCart = (props) => {
+          const ctx = useContext(CartContext);
+          const noOfItems = ctx.items.reduce((totalNUmber, item) => {
+            return totalNUmber + item.amount;
+          }, 0)
   return (
-    <button className={classes.header__cart__button}>
+    <button className={classes.header__cart__button} onClick={props.onClick}>
       <span className={classes.icon}>
-        <ShoppingCartIcon />
+        {/* <ShoppingCartIcon /> */}
+        <CartIcon />
       </span>
       <span>Your Cart</span>
-      <span className={classes.badge}>0</span>
+  <span className={classes.badge}>{noOfItems}</span>
     </button>
   )
 }
