@@ -1,46 +1,56 @@
 import classes from "./MealList.module.css"
 import Card from "../UI/Card"
 import MealItem from "./MealItem"
-
-
-const mealList = [
-  {
-    id: 1,
-    title: "Chicken Gravy",
-    incred: "Chicken and gravy",
-    price: 200,
-  },
-  {
-    id: 2,
-    title: "Briyani",
-    incred: "Chicken and Masala",
-    price: 110,
-  },
-  {
-    id: 3,
-    title: "Burger",
-    incred: "Bun and Vegetables",
-    price: 180,
-  },
-  {
-    id: 4,
-    title: "Pizza",
-    incred: "Chicken and toppins",
-    price: 400,
-  },
-]
+import {useEffect, useState, ReactDOM} from "react"
+import Modal from "../UI/Modal"
 
 const MealList = () => {
+  const [meals, setMeals] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [hasError, setHasError] = useState(false)
 
-  
+  useEffect(() => {
+    const fetchMeals = async () => {
+      const response = await fetch(
+        "https://food-order-2cccb-default-rtdb.firebaseio.com/meals.json"
+      )
+      if (!response.ok) {
+        throw new Error("Sorry, Food is not available. Try after sometimes")
+      }
+
+      const data = await response.json()
+      let mealList = []
+      for (const key in data) {
+        mealList.push({
+          id: key,
+          title: data[key].title,
+          incred: data[key].incred,
+          price: data[key].price,
+        })
+      }
+      setMeals(mealList)
+      setIsLoading(false)
+    }
+    fetchMeals().catch((error) => {
+      setIsLoading(false)
+      setHasError(error.message)
+    })
+  }, [])
+
+  if (isLoading) {
+    return <p className={classes.mealsLoading}>Loading...</p>
+  }
+
+  if (hasError) {
+    return <p className={classes.error}>{hasError}</p>
+  }
+  let availableMeals = meals.map((meal) => (
+    <MealItem meal={meal} key={meal.id} id={meal.id} />
+  ))
+
   return (
     <section className={classes.meals}>
-      <Card>
-        {mealList.map((meal) => 
-          <MealItem meal={meal} key={meal.id}  id={meal.id}/>
-        )}
-        
-      </Card>
+      <Card>{availableMeals}</Card>
     </section>
   )
 }
